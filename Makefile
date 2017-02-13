@@ -1,4 +1,4 @@
-obj-m+=dummy.o hello.o
+obj-m+=dummy.o hello.o cli_arguments.o
 
 all:
 		make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) modules
