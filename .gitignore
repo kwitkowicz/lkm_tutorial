@@ -1,5 +1,6 @@
 *.ko*
 *.cmd
-*.mod
+*.mod*
 *.o
 .ycm*
+Module.symvers
