@@ -59,7 +59,6 @@ static int __init mychar_dev_init(void){
 	printk(KERN_INFO "mychar_dev: device created\n");
 
 	return 0;
-
 }
 
 static int mychar_dev_open(struct inode *inode, struct file *file){
@@ -80,15 +79,15 @@ static ssize_t mychar_dev_read(struct file * filep, char * buff, size_t buff_len
 		return(msg_length=0);
 	}
 	else{
-		printk(KERN_ALERT "mychar_dev: failed while send data\n");
+		printk(KERN_ALERT "mychar_dev: failed while sending data\n");
 		return -EFAULT;
 	}
 }
 
 static ssize_t mychar_dev_write(struct file * filep, const char * buff, size_t buff_len, loff_t * offset){
-	sprintf(msg, "%s",buff);
+	sprintf(msg, "My message is:[%s]",buff);
 	msg_length = strlen(msg);
-	printk(KERN_INFO "mychar_dev: Received %d characters from client\n",msg_length);
+	printk(KERN_INFO "mychar_dev: Received %d characters from client\n",buff_len);
 	return buff_len;
 
 }
